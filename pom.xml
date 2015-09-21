@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.kuronicle.tools</groupId>
-    <artifactId>xmlcheckstyle</artifactId>
+    <artifactId>xml-checkstyle</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>xmlcheckstyle</name>
+    <name>xml-checkstyle</name>
     <url>http://maven.apache.org</url>
 
     <properties>
