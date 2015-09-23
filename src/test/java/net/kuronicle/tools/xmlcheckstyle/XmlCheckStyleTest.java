@@ -54,5 +54,18 @@ public class XmlCheckStyleTest {
         XmlCheckStyle target = new XmlCheckStyle();
         target.outputResult(mapError);
     }
+    
+    @Test
+    public void testCheckAndOutputResult() throws Exception {
+        XmlCheckStyle target = new XmlCheckStyle();
+        List<Checker> checkerList = new ArrayList<Checker>();
+        checkerList.add(new LoggingChecker());
+        checkerList.add(new AttributeValuePatternChecker("file/" + "error",
+                "line", "^[1].*", "warning"));
+        target.setCheckerList(checkerList);
+        Map<String, List<CheckError>> errorMap = target.check();
+        target.outputResult(errorMap);
+        
+    }
 
 }

@@ -2,6 +2,7 @@ package net.kuronicle.tools.xmlcheckstyle;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,14 +31,17 @@ import com.bea.xml.stream.EventFactory;
 @CommonsLog
 public class XmlCheckStyle {
 
-    String dummyVersion = "6.9";
+    private String dummyVersion = "6.9";
 
-    String targetDirPath = "./src/test/resources";
+    private String targetDirPath = "./src";
 
-    String targetFilePattern = "^.*\\.xml$";
+    private String targetFilePattern = "^.*\\.xml$";
 
+    private String outputFilePath = "./xml-checkstyle-result.xml";
+    
     @Setter
     List<Checker> checkerList = new ArrayList<Checker>();
+
 
     public Map<String, List<CheckError>> check() throws Exception {
         Map<String, List<CheckError>> errorMap = new HashMap<String, List<CheckError>>();
@@ -59,8 +63,8 @@ public class XmlCheckStyle {
 
         XMLOutputFactory outFactory = XMLOutputFactory.newInstance();
 
-        StringWriter stringWriter = new StringWriter();
-        XMLEventWriter writer = outFactory.createXMLEventWriter(stringWriter);
+        FileWriter fileWriter = new FileWriter(new File(outputFilePath));
+        XMLEventWriter writer = outFactory.createXMLEventWriter(fileWriter);
         XMLEventFactory eventFactory = EventFactory.newInstance();
 
         writer.add(eventFactory.createStartDocument());
@@ -92,8 +96,9 @@ public class XmlCheckStyle {
         writer.add(eventFactory.createEndElement("", "", "checkstyle"));
         writer.add(eventFactory.createEndDocument());
         writer.close();
-
-        System.out.println(stringWriter.toString());
+        
+        fileWriter.flush();
+        fileWriter.close();
     }
 
     private List<CheckError> checkFile(String targetFile) throws Exception {
