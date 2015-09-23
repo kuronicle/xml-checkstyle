@@ -82,7 +82,7 @@ public class XmlCheckStyle {
                 writer.add(eventFactory.createStartElement("", "", "error"));
                 writer.add(eventFactory.createAttribute("line", error.getLine()
                         .toString()));
-                writer.add(eventFactory.createAttribute("severty", error
+                writer.add(eventFactory.createAttribute("severity", error
                         .getSeverity().getValue()));
                 writer.add(eventFactory.createAttribute("message",
                         error.getMessage()));
