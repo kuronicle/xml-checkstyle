@@ -3,7 +3,6 @@ package net.kuronicle.tools.xmlcheckstyle;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,22 +25,27 @@ import lombok.Setter;
 import lombok.extern.apachecommons.CommonsLog;
 import net.kuronicle.tools.xmlcheckstyle.checker.Checker;
 
+import org.apache.commons.io.FilenameUtils;
+
 import com.bea.xml.stream.EventFactory;
 
 @CommonsLog
 public class XmlCheckStyle {
 
-    private String dummyVersion = "6.9";
+    @Setter
+    private String dummyVersion = "xml-0.0";
 
+    @Setter
     private String targetDirPath = "./src";
 
+    @Setter
     private String targetFilePattern = "^.*\\.xml$";
 
-    private String outputFilePath = "./xml-checkstyle-result.xml";
+    @Setter
+    private String outputFilePath = "./target/xml-checkstyle-result.xml";
     
     @Setter
-    List<Checker> checkerList = new ArrayList<Checker>();
-
+    private CheckerManager checkerManager;
 
     public Map<String, List<CheckError>> check() throws Exception {
         Map<String, List<CheckError>> errorMap = new HashMap<String, List<CheckError>>();
@@ -58,49 +62,6 @@ public class XmlCheckStyle {
         return errorMap;
     }
 
-    public void outputResult(Map<String, List<CheckError>> errorMap)
-            throws Exception {
-
-        XMLOutputFactory outFactory = XMLOutputFactory.newInstance();
-
-        FileWriter fileWriter = new FileWriter(new File(outputFilePath));
-        XMLEventWriter writer = outFactory.createXMLEventWriter(fileWriter);
-        XMLEventFactory eventFactory = EventFactory.newInstance();
-
-        writer.add(eventFactory.createStartDocument());
-        writer.add(eventFactory.createStartElement("", "", "checkstyle"));
-        writer.add(eventFactory.createAttribute("version", dummyVersion));
-
-        for (Entry<String, List<CheckError>> entry : errorMap.entrySet()) {
-            String fileName = entry.getKey();
-            List<CheckError> errorList = entry.getValue();
-
-            writer.add(eventFactory.createStartElement("", "", "file"));
-            writer.add(eventFactory.createAttribute("name", fileName));
-
-            for (CheckError error : errorList) {
-                writer.add(eventFactory.createStartElement("", "", "error"));
-                writer.add(eventFactory.createAttribute("line", error.getLine()
-                        .toString()));
-                writer.add(eventFactory.createAttribute("severity", error
-                        .getSeverity().getValue()));
-                writer.add(eventFactory.createAttribute("message",
-                        error.getMessage()));
-                writer.add(eventFactory.createAttribute("source",
-                        error.getSource()));
-                writer.add(eventFactory.createEndElement("", "", "error"));
-            }
-            writer.add(eventFactory.createEndElement("", "", "file"));
-        }
-
-        writer.add(eventFactory.createEndElement("", "", "checkstyle"));
-        writer.add(eventFactory.createEndDocument());
-        writer.close();
-        
-        fileWriter.flush();
-        fileWriter.close();
-    }
-
     private List<CheckError> checkFile(String targetFile) throws Exception {
         log.debug("Start cheking. file=" + targetFile);
 
@@ -110,12 +71,18 @@ public class XmlCheckStyle {
         XMLEventReader reader = inputFactory
                 .createXMLEventReader(new FileInputStream(new File(targetFile)));
 
+        List<Checker> checkerList = checkerManager.getCheckerList();
+        
         String xmlPath = "";
+        String targetFileName = FilenameUtils.getName(targetFile);
         while (reader.hasNext()) {
             XMLEvent event = reader.nextEvent();
 
             if (event.isStartDocument()) {
                 for (Checker checker : checkerList) {
+                    if(checker.isIgnore(targetFileName)) {
+                        continue;
+                    }
                     CheckError error = checker.startDocument(event);
                     if(error!= null) {
                         log.info("Detect error. error=" + error);
@@ -126,6 +93,9 @@ public class XmlCheckStyle {
                 StartElement startElement = event.asStartElement();
                 xmlPath += "/" + startElement.getName().getLocalPart();
                 for (Checker checker : checkerList) {
+                    if(checker.isIgnore(targetFileName)) {
+                        continue;
+                    }
                     CheckError error = checker.startElement(xmlPath, startElement);
                     if(error!= null) {
                         log.info("Detect error. error=" + error);
@@ -136,6 +106,9 @@ public class XmlCheckStyle {
                 EndElement endElement = event.asEndElement();
                 xmlPath = xmlPath.substring(0, xmlPath.lastIndexOf("/"));
                 for (Checker checker : checkerList) {
+                    if(checker.isIgnore(targetFileName)) {
+                        continue;
+                    }
                     CheckError error = checker.endElement(xmlPath, endElement);
                     if(error!= null) {
                         log.info("Detect error. error=" + error);
@@ -145,6 +118,9 @@ public class XmlCheckStyle {
             } else if (event.isCharacters()) {
                 Characters characters = event.asCharacters();
                 for (Checker checker : checkerList) {
+                    if(checker.isIgnore(targetFileName)) {
+                        continue;
+                    }
                     CheckError error = checker.characters(xmlPath, characters);
                     if(error!= null) {
                         log.info("Detect error. error=" + error);
@@ -153,6 +129,9 @@ public class XmlCheckStyle {
                 }
             } else if (event.isEndDocument()) {
                 for (Checker checker : checkerList) {
+                    if(checker.isIgnore(targetFileName)) {
+                        continue;
+                    }
                     CheckError error = checker.endDocument(event);
                     if(error!= null) {
                         log.info("Detect error. error=" + error);
@@ -168,6 +147,49 @@ public class XmlCheckStyle {
         return erros;
     }
 
+    public void outputResult(Map<String, List<CheckError>> errorMap)
+            throws Exception {
+    
+        XMLOutputFactory outFactory = XMLOutputFactory.newInstance();
+    
+        FileWriter fileWriter = new FileWriter(new File(outputFilePath));
+        XMLEventWriter writer = outFactory.createXMLEventWriter(fileWriter);
+        XMLEventFactory eventFactory = EventFactory.newInstance();
+    
+        writer.add(eventFactory.createStartDocument());
+        writer.add(eventFactory.createStartElement("", "", "checkstyle"));
+        writer.add(eventFactory.createAttribute("version", dummyVersion));
+    
+        for (Entry<String, List<CheckError>> entry : errorMap.entrySet()) {
+            String fileName = entry.getKey();
+            List<CheckError> errorList = entry.getValue();
+    
+            writer.add(eventFactory.createStartElement("", "", "file"));
+            writer.add(eventFactory.createAttribute("name", fileName));
+    
+            for (CheckError error : errorList) {
+                writer.add(eventFactory.createStartElement("", "", "error"));
+                writer.add(eventFactory.createAttribute("line", error.getLine()
+                        .toString()));
+                writer.add(eventFactory.createAttribute("severity", error
+                        .getSeverity().getValue()));
+                writer.add(eventFactory.createAttribute("message",
+                        error.getMessage()));
+                writer.add(eventFactory.createAttribute("source",
+                        error.getSource()));
+                writer.add(eventFactory.createEndElement("", "", "error"));
+            }
+            writer.add(eventFactory.createEndElement("", "", "file"));
+        }
+    
+        writer.add(eventFactory.createEndElement("", "", "checkstyle"));
+        writer.add(eventFactory.createEndDocument());
+        writer.close();
+        
+        fileWriter.flush();
+        fileWriter.close();
+    }
+
     private List<String> listTargetFiles(String targetDir) {
         List<String> filePathList = new ArrayList<String>();
 
@@ -180,6 +202,9 @@ public class XmlCheckStyle {
 
     private void findFile(List<String> filePathList, File dir, Pattern pattern) {
         File[] files = dir.listFiles();
+        if(files == null || files.length == 0) {
+            return;
+        }
         for (File file : files) {
             if (file.isDirectory()) {
                 findFile(filePathList, file, pattern);

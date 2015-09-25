@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import net.kuronicle.tools.xmlcheckstyle.checker.AttributeValuePatternChecker;
+import net.kuronicle.tools.xmlcheckstyle.checker.BaseChecker;
 import net.kuronicle.tools.xmlcheckstyle.checker.Checker;
 import net.kuronicle.tools.xmlcheckstyle.checker.LoggingChecker;
 
@@ -19,9 +20,13 @@ public class XmlCheckStyleTest {
         XmlCheckStyle target = new XmlCheckStyle();
         List<Checker> checkerList = new ArrayList<Checker>();
         checkerList.add(new LoggingChecker());
-        checkerList.add(new AttributeValuePatternChecker("file/" + "error",
-                "line", "^[1].*", "warning"));
-        target.setCheckerList(checkerList);
+        BaseChecker checker = new AttributeValuePatternChecker("file/" + "error",
+                "line", "^[1].*", "warning");
+        checker.addIgnoreFile("checkstyle-result.xml");
+        checkerList.add(checker);
+        SimpleCheckerManager checkerManager = new SimpleCheckerManager();
+        checkerManager.setCheckerList(checkerList);
+        target.setCheckerManager(checkerManager);
         Map<String, List<CheckError>> errorMap = target.check();
 
         for (Entry<String, List<CheckError>> entry : errorMap.entrySet()) {
@@ -62,7 +67,9 @@ public class XmlCheckStyleTest {
         checkerList.add(new LoggingChecker());
         checkerList.add(new AttributeValuePatternChecker("file/" + "error",
                 "line", "^[1].*", "warning"));
-        target.setCheckerList(checkerList);
+        SimpleCheckerManager checkerManager = new SimpleCheckerManager();
+        checkerManager.setCheckerList(checkerList);
+        target.setCheckerManager(checkerManager);
         Map<String, List<CheckError>> errorMap = target.check();
         target.outputResult(errorMap);
         

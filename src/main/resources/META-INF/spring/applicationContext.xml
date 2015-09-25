@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <context:property-placeholder location="classpath:META-INF/spring/application.properties"/>
+        
+    <bean id="xmlCheckStyle" class="net.kuronicle.tools.xmlcheckstyle.XmlCheckStyle">
+        <property name="dummyVersion" value="${dummy.version}" />
+        <property name="targetDirPath" value="${target.dir.path}" />
+        <property name="targetFilePattern" value="${target.file.pattern}" />
+        <property name="outputFilePath" value="${output.file.path}" />
+        <property name="checkerManager" ref="checkerManager" />
+    </bean>
+    
+    <bean id="checkerManager" class="net.kuronicle.tools.xmlcheckstyle.SimpleCheckerManager">
+        <property name="checkerList">
+            <list>
+                <bean class="net.kuronicle.tools.xmlcheckstyle.checker.AttributeValuePatternChecker">
+                    <constructor-arg name="targetXmlPathRegex" value="file/error" />
+                    <constructor-arg name="attributeName" value="message" />
+                    <constructor-arg name="valuePatternRegex" value="^Javadoc.*" />
+                    <constructor-arg name="severity" value="warning" />
+                    <property name="ignoreFileSet">
+                        <set>
+                            <value>ignoreFileName.xml</value>
+                        </set>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
+</beans>

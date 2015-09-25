@@ -9,7 +9,7 @@ import lombok.extern.apachecommons.CommonsLog;
 import net.kuronicle.tools.xmlcheckstyle.CheckError;
 
 @CommonsLog
-public class LoggingChecker implements Checker {
+public class LoggingChecker extends BaseChecker implements Checker {
 
     public CheckError startElement(String xmlPath, StartElement startElement) {
         log.debug("Element start. element="

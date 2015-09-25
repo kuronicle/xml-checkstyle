@@ -10,8 +10,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("META-INF/spring/applicationContext.xml");
         XmlCheckStyle xmlCheckStyle = applicationContext.getBean("xmlCheckStyle", XmlCheckStyle.class);
+        
         Map<String, List<CheckError>> errorMap = xmlCheckStyle.check();
         xmlCheckStyle.outputResult(errorMap);
         

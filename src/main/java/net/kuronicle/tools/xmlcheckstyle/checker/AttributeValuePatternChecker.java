@@ -17,7 +17,7 @@ import net.kuronicle.tools.xmlcheckstyle.CheckError;
 import net.kuronicle.tools.xmlcheckstyle.Severity;
 
 @Data
-public class AttributeValuePatternChecker implements Checker {
+public class AttributeValuePatternChecker extends BaseChecker implements Checker {
 
     @NonNull
     private String targetXmlPathRegex;

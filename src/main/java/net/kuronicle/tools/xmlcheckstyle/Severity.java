@@ -1,7 +1,7 @@
 package net.kuronicle.tools.xmlcheckstyle;
 
 public enum Severity {
-    WARNING("warning"), ERROR("error");
+    IGNORE("ignore"), WARNING("warning"), ERROR("error");
     
     private String value;
     
@@ -14,9 +14,11 @@ public enum Severity {
     }
     
     public static Severity convert(String value) {
-        if(Severity.WARNING.getValue().equals(value)) {
+        if (IGNORE.getValue().equals(value)) {
+            return IGNORE;
+        } else if(WARNING.getValue().equals(value)) {
             return WARNING;
-        } else if(Severity.ERROR.getValue().equals(value)) {
+        } else if(ERROR.getValue().equals(value)) {
             return ERROR;
         } else {
             throw new RuntimeException("Illegal Severity value. value=" + value);

@@ -1,222 +1,217 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="6.9">
-    <file
-        name="D:\Users\keijiro\Git\etl-test-example\src\test\java\net\kuronicle\etl\IF0001Test.java">
-        <error line="0" severity="warning" message="Missing package-info.java file."
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck" />
-        <error line="0" severity="warning" message="ファイルが新しい行で終了していません。"
-            source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck" />
-        <error line="11" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck" />
-        <error line="13" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="15" severity="warning" message="行が 80 文字を超えています。"
-            source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
-        <error line="15" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="16" severity="warning" message="Line has trailing spaces."
-            source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
-        <error line="17" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="20" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
-        <error line="21" column="17" severity="warning"
-            message="名前 &apos;UT0001&apos; はパターン &apos;^[a-z][a-zA-Z0-9]*$&apos; に一致しなければなりません。"
-            source="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck" />
-        <error line="24" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
-        <error line="25" column="17" severity="warning"
-            message="名前 &apos;UT0002&apos; はパターン &apos;^[a-z][a-zA-Z0-9]*$&apos; に一致しなければなりません。"
-            source="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck" />
-        <error line="29" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
-        <error line="29" column="5" severity="warning"
-            message="メソッド &apos;setUp&apos; は拡張するように設計されていません - abstract か final か空である必要があります。"
-            source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck" />
-        <error line="32" severity="warning" message="Line has trailing spaces."
-            source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
-        <error line="34" severity="warning" message="Line has trailing spaces."
-            source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
-        <error line="37" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
-        <error line="37" column="5" severity="warning"
-            message="メソッド &apos;tearDown&apos; は拡張するように設計されていません - abstract か final か空である必要があります。"
-            source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck" />
-        <error line="40" severity="warning" message="Line has trailing spaces."
-            source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
-        <error line="42" severity="warning" message="Line has trailing spaces."
-            source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
-    </file>
-    <file
-        name="D:\Users\keijiro\Git\etl-test-example\src\test\java\net\kuronicle\etl\test\util\DatabaseInfo.java">
-        <error line="0" severity="warning" message="Missing package-info.java file."
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck" />
-        <error line="0" severity="warning" message="ファイルが新しい行で終了していません。"
-            source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck" />
-        <error line="6" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck" />
-        <error line="8" severity="warning" message="Line has trailing spaces."
-            source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
-        <error line="9" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="11" severity="warning" message="Line has trailing spaces."
-            source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
-        <error line="12" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="14" severity="warning" message="Line has trailing spaces."
-            source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
-        <error line="15" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="17" severity="warning" message="Line has trailing spaces."
-            source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
-        <error line="18" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="20" severity="warning" message="Line has trailing spaces."
-            source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
-        <error line="21" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-    </file>
-    <file
-        name="D:\Users\keijiro\Git\etl-test-example\src\test\java\net\kuronicle\etl\test\util\DatastoreInfo.java">
-        <error line="0" severity="warning" message="ファイルが新しい行で終了していません。"
-            source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck" />
-        <error line="3" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck" />
-    </file>
-    <file
-        name="D:\Users\keijiro\Git\etl-test-example\src\test\java\net\kuronicle\etl\test\util\EtlTester.java">
-        <error line="0" severity="warning" message="ファイルが新しい行で終了していません。"
-            source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck" />
-        <error line="37" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck" />
-        <error line="39" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="39" column="33" severity="warning"
-            message="名前 &apos;log&apos; はパターン &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos; に一致しなければなりません。"
-            source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck" />
-        <error line="41" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="43" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="45" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="47" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="49" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="51" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="53" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="55" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="57" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="59" severity="warning" message="行が 80 文字を超えています。"
-            source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
-        <error line="59" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="61" severity="warning" message="行が 80 文字を超えています。"
-            source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
-        <error line="61" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="63" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
-        <error line="63" column="22" severity="warning"
-            message="Parameter datastoreInfoFilePath should be final."
-            source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
-        <error line="63" column="29" severity="warning"
-            message="&apos;datastoreInfoFilePath&apos; がフィールドを隠しています。"
-            source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck" />
-        <error line="79" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
-        <error line="79" column="5" severity="warning"
-            message="メソッド &apos;prepareDatastores&apos; は拡張するように設計されていません - abstract か final か空である必要があります。"
-            source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck" />
-        <error line="90" column="35" severity="warning"
-            message="Parameter dir should be final."
-            source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
-        <error line="90" column="45" severity="warning"
-            message="Parameter name should be final."
-            source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
-        <error line="92" column="71" severity="warning"
-            message="Avoid inline conditionals."
-            source="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck" />
-        <error line="106" severity="warning" message="行が 80 文字を超えています。"
-            source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
-        <error line="113" severity="warning" message="行が 80 文字を超えています。"
-            source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
-        <error line="140" column="5" severity="warning"
-            message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
-        <error line="140" column="45" severity="warning"
-            message="Parameter datastoreName should be final."
-            source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
-        <error line="159" column="57" severity="warning"
-            message="&apos;3&apos; はマジックナンバーです。"
-            source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck" />
-        <error line="161" column="57" severity="warning"
-            message="&apos;4&apos; はマジックナンバーです。"
-            source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck" />
-        <error line="163" column="55" severity="warning"
-            message="&apos;5&apos; はマジックナンバーです。"
-            source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck" />
-        <error line="169" column="57" severity="warning"
-            message="&apos;6&apos; はマジックナンバーです。"
-            source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck" />
-        <error line="171" column="60" severity="warning"
-            message="&apos;7&apos; はマジックナンバーです。"
-            source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck" />
-        <error line="179" column="5" severity="warning"
-            message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
-        <error line="179" column="33" severity="warning"
-            message="Parameter ifId should be final."
-            source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
-        <error line="179" column="46" severity="warning"
-            message="Parameter testCaseId should be final."
-            source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
-        <error line="188" column="5" severity="warning"
-            message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
-        <error line="188" column="5" severity="warning"
-            message="メソッド &apos;assertDatastores&apos; は拡張するように設計されていません - abstract か final か空である必要があります。"
-            source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck" />
-        <error line="200" column="35" severity="warning"
-            message="Parameter dir should be final."
-            source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
-        <error line="200" column="45" severity="warning"
-            message="Parameter name should be final."
-            source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
-        <error line="202" column="70" severity="warning"
-            message="Avoid inline conditionals."
-            source="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck" />
-        <error line="231" severity="warning" message="行が 80 文字を超えています。"
-            source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
-        <error line="310" severity="warning" message="行が 80 文字を超えています。"
-            source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
-        <error line="327" column="5" severity="warning"
-            message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
-        <error line="327" column="47" severity="warning"
-            message="Parameter datastoreName should be final."
-            source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
-        <error line="347" column="5" severity="warning"
-            message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
-        <error line="347" column="44" severity="warning"
-            message="Parameter datastoreName should be final."
-            source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
-    </file>
-    <file
-        name="D:\Users\keijiro\Git\etl-test-example\src\test\java\net\kuronicle\etl\test\util\FlatFileInfo.java">
-        <error line="0" severity="warning" message="ファイルが新しい行で終了していません。"
-            source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck" />
-        <error line="6" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck" />
-        <error line="9" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-        <error line="12" column="5" severity="warning" message="Javadoc コメントがありません。"
-            source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
-    </file>
+  <file
+    name="D:\Users\keijiro\Git\etl-test-example\src\test\java\net\kuronicle\etl\IF0001Test.java">
+    <error line="0" severity="warning" message="Missing package-info.java file."
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck" />
+    <error line="0" severity="warning" message="ファイルが新しい行で終了していません。"
+      source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck" />
+    <error line="11" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck" />
+    <error line="13" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="15" severity="warning" message="行が 80 文字を超えています。"
+      source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
+    <error line="15" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="16" severity="warning" message="Line has trailing spaces."
+      source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
+    <error line="17" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="20" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
+    <error line="21" column="17" severity="warning"
+      message="名前 &apos;UT0001&apos; はパターン &apos;^[a-z][a-zA-Z0-9]*$&apos; に一致しなければなりません。"
+      source="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck" />
+    <error line="24" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
+    <error line="25" column="17" severity="warning"
+      message="名前 &apos;UT0002&apos; はパターン &apos;^[a-z][a-zA-Z0-9]*$&apos; に一致しなければなりません。"
+      source="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck" />
+    <error line="29" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
+    <error line="29" column="5" severity="warning"
+      message="メソッド &apos;setUp&apos; は拡張するように設計されていません - abstract か final か空である必要があります。"
+      source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck" />
+    <error line="32" severity="warning" message="Line has trailing spaces."
+      source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
+    <error line="34" severity="warning" message="Line has trailing spaces."
+      source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
+    <error line="37" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
+    <error line="37" column="5" severity="warning"
+      message="メソッド &apos;tearDown&apos; は拡張するように設計されていません - abstract か final か空である必要があります。"
+      source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck" />
+    <error line="40" severity="warning" message="Line has trailing spaces."
+      source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
+    <error line="42" severity="warning" message="Line has trailing spaces."
+      source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
+  </file>
+  <file
+    name="D:\Users\keijiro\Git\etl-test-example\src\test\java\net\kuronicle\etl\test\util\DatabaseInfo.java">
+    <error line="0" severity="warning" message="Missing package-info.java file."
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck" />
+    <error line="0" severity="warning" message="ファイルが新しい行で終了していません。"
+      source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck" />
+    <error line="6" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck" />
+    <error line="8" severity="warning" message="Line has trailing spaces."
+      source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
+    <error line="9" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="11" severity="warning" message="Line has trailing spaces."
+      source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
+    <error line="12" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="14" severity="warning" message="Line has trailing spaces."
+      source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
+    <error line="15" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="17" severity="warning" message="Line has trailing spaces."
+      source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
+    <error line="18" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="20" severity="warning" message="Line has trailing spaces."
+      source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck" />
+    <error line="21" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+  </file>
+  <file
+    name="D:\Users\keijiro\Git\etl-test-example\src\test\java\net\kuronicle\etl\test\util\DatastoreInfo.java">
+    <error line="0" severity="warning" message="ファイルが新しい行で終了していません。"
+      source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck" />
+    <error line="3" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck" />
+  </file>
+  <file
+    name="D:\Users\keijiro\Git\etl-test-example\src\test\java\net\kuronicle\etl\test\util\EtlTester.java">
+    <error line="0" severity="warning" message="ファイルが新しい行で終了していません。"
+      source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck" />
+    <error line="37" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck" />
+    <error line="39" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="39" column="33" severity="warning"
+      message="名前 &apos;log&apos; はパターン &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos; に一致しなければなりません。"
+      source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck" />
+    <error line="41" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="43" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="45" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="47" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="49" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="51" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="53" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="55" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="57" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="59" severity="warning" message="行が 80 文字を超えています。"
+      source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
+    <error line="59" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="61" severity="warning" message="行が 80 文字を超えています。"
+      source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
+    <error line="61" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="63" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
+    <error line="63" column="22" severity="warning"
+      message="Parameter datastoreInfoFilePath should be final."
+      source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
+    <error line="63" column="29" severity="warning"
+      message="&apos;datastoreInfoFilePath&apos; がフィールドを隠しています。"
+      source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck" />
+    <error line="79" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
+    <error line="79" column="5" severity="warning"
+      message="メソッド &apos;prepareDatastores&apos; は拡張するように設計されていません - abstract か final か空である必要があります。"
+      source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck" />
+    <error line="90" column="35" severity="warning"
+      message="Parameter dir should be final."
+      source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
+    <error line="90" column="45" severity="warning"
+      message="Parameter name should be final."
+      source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
+    <error line="92" column="71" severity="warning"
+      message="Avoid inline conditionals."
+      source="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck" />
+    <error line="106" severity="warning" message="行が 80 文字を超えています。"
+      source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
+    <error line="113" severity="warning" message="行が 80 文字を超えています。"
+      source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
+    <error line="140" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
+    <error line="140" column="45" severity="warning"
+      message="Parameter datastoreName should be final."
+      source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
+    <error line="159" column="57" severity="warning"
+      message="&apos;3&apos; はマジックナンバーです。"
+      source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck" />
+    <error line="161" column="57" severity="warning"
+      message="&apos;4&apos; はマジックナンバーです。"
+      source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck" />
+    <error line="163" column="55" severity="warning"
+      message="&apos;5&apos; はマジックナンバーです。"
+      source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck" />
+    <error line="169" column="57" severity="warning"
+      message="&apos;6&apos; はマジックナンバーです。"
+      source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck" />
+    <error line="171" column="60" severity="warning"
+      message="&apos;7&apos; はマジックナンバーです。"
+      source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck" />
+    <error line="179" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
+    <error line="179" column="33" severity="warning"
+      message="Parameter ifId should be final."
+      source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
+    <error line="179" column="46" severity="warning"
+      message="Parameter testCaseId should be final."
+      source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
+    <error line="188" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
+    <error line="188" column="5" severity="warning"
+      message="メソッド &apos;assertDatastores&apos; は拡張するように設計されていません - abstract か final か空である必要があります。"
+      source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck" />
+    <error line="200" column="35" severity="warning"
+      message="Parameter dir should be final."
+      source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
+    <error line="200" column="45" severity="warning"
+      message="Parameter name should be final."
+      source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
+    <error line="202" column="70" severity="warning"
+      message="Avoid inline conditionals."
+      source="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck" />
+    <error line="231" severity="warning" message="行が 80 文字を超えています。"
+      source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
+    <error line="310" severity="warning" message="行が 80 文字を超えています。"
+      source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck" />
+    <error line="327" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
+    <error line="327" column="47" severity="warning"
+      message="Parameter datastoreName should be final."
+      source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
+    <error line="347" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck" />
+    <error line="347" column="44" severity="warning"
+      message="Parameter datastoreName should be final."
+      source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck" />
+  </file>
+  <file
+    name="D:\Users\keijiro\Git\etl-test-example\src\test\java\net\kuronicle\etl\test\util\FlatFileInfo.java">
+    <error line="0" severity="warning" message="ファイルが新しい行で終了していません。"
+      source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck" />
+    <error line="6" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck" />
+    <error line="9" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+    <error line="12" column="5" severity="warning" message="Javadoc コメントがありません。"
+      source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck" />
+  </file>
 </checkstyle>

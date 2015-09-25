@@ -8,6 +8,8 @@ import javax.xml.stream.events.XMLEvent;
 import net.kuronicle.tools.xmlcheckstyle.CheckError;
 
 public interface Checker {
+    
+    public boolean isIgnore(String fileName);
 
     public CheckError startElement(String xmlPath, StartElement startElement);
 
