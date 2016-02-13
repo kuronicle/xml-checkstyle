@@ -1,5 +1,6 @@
 package net.kuronicle.tools.xmlcheckstyle.checker;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,12 +12,11 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-import lombok.Data;
 import lombok.NonNull;
+import lombok.Setter;
 import net.kuronicle.tools.xmlcheckstyle.CheckError;
 import net.kuronicle.tools.xmlcheckstyle.Severity;
 
-@Data
 public class AttributeValuePatternChecker extends BaseChecker implements Checker {
 
     @NonNull
@@ -37,8 +37,10 @@ public class AttributeValuePatternChecker extends BaseChecker implements Checker
 
     private String messageFormat = "The expected attribute value is \"%s\", but \"%s\". path=%s, attribute=%s";
 
-    public AttributeValuePatternChecker(String targetXmlPathRegex,
-            String attributeName, String valuePatternRegex, String severity) {
+    @Setter
+    private List<AttributeFilterCondition> attributeFilterConditionList;
+
+    public AttributeValuePatternChecker(String targetXmlPathRegex, String attributeName, String valuePatternRegex, String severity) {
         this.targetXmlPathRegex = targetXmlPathRegex;
         this.attributeName = attributeName;
         this.valuePatternRegex = valuePatternRegex;
@@ -48,14 +50,15 @@ public class AttributeValuePatternChecker extends BaseChecker implements Checker
     }
 
     public CheckError startElement(String xmlPath, StartElement startElement) {
-        if (!isTargetElement(xmlPath)) {
+        if (!isTargetElement(xmlPath, startElement)) {
             return null;
         }
 
-        Attribute targetAttribute = startElement.getAttributeByName(new QName(
-                attributeName));
+        Attribute targetAttribute = startElement.getAttributeByName(new QName(attributeName));
         if (targetAttribute == null) {
-            return null;
+            String message = String.format("The attribute is not fourd. path=%s, attribute=%s", xmlPath, attributeName);
+            CheckError error = createCheckError(startElement, message);
+            return error;
         }
 
         String attributeValue = targetAttribute.getValue();
@@ -64,16 +67,20 @@ public class AttributeValuePatternChecker extends BaseChecker implements Checker
             return null;
         }
 
-        Location location = startElement.getLocation();
+        String message = String.format(messageFormat, valuePatternRegex, attributeValue, xmlPath, attributeName);
+        CheckError error = createCheckError(startElement, message);
 
+        return error;
+    }
+
+    private CheckError createCheckError(StartElement startElement, String message) {
         CheckError error = new CheckError();
+        Location location = startElement.getLocation();
         error.setLine(location.getLineNumber());
         error.setColumn(location.getColumnNumber());
         error.setSeverity(severity);
         error.setSource(AttributeValuePatternChecker.class.getName());
-        error.setMessage(String.format(messageFormat, valuePatternRegex,
-               attributeValue, xmlPath, attributeName));
-
+        error.setMessage(message);
         return error;
     }
 
@@ -82,9 +89,22 @@ public class AttributeValuePatternChecker extends BaseChecker implements Checker
         return matcher.find();
     }
 
-    private boolean isTargetElement(String xmlPath) {
+    private boolean isTargetElement(String xmlPath, StartElement startElement) {
         Matcher matcher = targetXmlPathPattern.matcher(xmlPath);
-        return matcher.find();
+
+        if (!matcher.find()) {
+            return false;
+        }
+
+        if (attributeFilterConditionList != null) {
+            for (AttributeFilterCondition condition : attributeFilterConditionList) {
+                if (!condition.match(startElement)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public CheckError endElement(String xmlPath, EndElement endElement) {
