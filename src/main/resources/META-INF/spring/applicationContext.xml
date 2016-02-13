@@ -22,13 +22,21 @@
             <list>
                 <bean class="net.kuronicle.tools.xmlcheckstyle.checker.AttributeValuePatternChecker">
                     <constructor-arg name="targetXmlPathRegex" value="file/error" />
-                    <constructor-arg name="attributeName" value="message" />
-                    <constructor-arg name="valuePatternRegex" value="^Javadoc.*" />
+                    <constructor-arg name="attributeName" value="line" />
+                    <constructor-arg name="valuePatternRegex" value="^[1].*" />
                     <constructor-arg name="severity" value="warning" />
                     <property name="ignoreFileSet">
                         <set>
                             <value>ignoreFileName.xml</value>
                         </set>
+                    </property>
+                    <property name="attributeFilterConditionList">
+                        <list>
+                            <bean class="net.kuronicle.tools.xmlcheckstyle.checker.AttributeFilterCondition">
+                                <constructor-arg name="attributeName" value="message" />
+                                <constructor-arg name="attributeValueRegex" value="^Javadoc.*" />
+                            </bean>
+                        </list>
                     </property>
                 </bean>
             </list>
