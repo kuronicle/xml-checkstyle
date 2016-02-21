@@ -2,6 +2,7 @@ package net.kuronicle.tools.xmlcheckstyle.checker;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -71,6 +72,7 @@ public class AttributeValuePatternCheckerTest {
 
     /**
      * XMLパスが一致し、属性値が一致しない場合、CheckErrorを返却する。
+     * customMessageを設定している場合、CheckErrorのmessageの先頭にcustomMessageが付与される。
      */
     @Test
     public void testStartElement003() {
@@ -78,6 +80,7 @@ public class AttributeValuePatternCheckerTest {
         String attributeName = "name";
         String valuePatternRegex = "hoge";
         String severity = "warning";
+        String customMessage = "This is a custom message.";
 
         String xmlPath = targetXmlPathRegex;
         String elementAttributeValue = "value";
@@ -90,13 +93,14 @@ public class AttributeValuePatternCheckerTest {
         when(mockStartElement.getAttributeByName(new QName(attributeName))).thenReturn(mockAttribute);
         when(mockStartElement.getLocation()).thenReturn(mockLocation);
 
-        AttributeValuePatternChecker target = new AttributeValuePatternChecker(targetXmlPathRegex, attributeName, valuePatternRegex, severity);
+        AttributeValuePatternChecker target = new AttributeValuePatternChecker(targetXmlPathRegex, attributeName, valuePatternRegex, severity, customMessage);
         CheckError actual = target.startElement(xmlPath, mockStartElement);
 
         System.out.println(actual);
         assertThat(actual.getLine(), is(10));
         assertThat(actual.getSeverity(), is(Severity.WARNING));
         assertThat(actual.getSource(), is(AttributeValuePatternChecker.class.getName()));
+        assertThat(actual.getMessage(), is(startsWith(customMessage)));
     }
 
     /**
