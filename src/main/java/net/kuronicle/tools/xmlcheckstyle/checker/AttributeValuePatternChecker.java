@@ -41,12 +41,17 @@ public class AttributeValuePatternChecker extends BaseChecker implements Checker
     private List<AttributeFilterCondition> attributeFilterConditionList;
 
     public AttributeValuePatternChecker(String targetXmlPathRegex, String attributeName, String valuePatternRegex, String severity) {
+        this(targetXmlPathRegex, attributeName, valuePatternRegex, severity, "");
+    }
+
+    public AttributeValuePatternChecker(String targetXmlPathRegex, String attributeName, String valuePatternRegex, String severity, String customErrorMessage) {
         this.targetXmlPathRegex = targetXmlPathRegex;
         this.attributeName = attributeName;
         this.valuePatternRegex = valuePatternRegex;
         this.severity = Severity.convert(severity);
         targetXmlPathPattern = Pattern.compile(targetXmlPathRegex);
         valuePattern = Pattern.compile(valuePatternRegex);
+        messageFormat = customErrorMessage + messageFormat;
     }
 
     public CheckError startElement(String xmlPath, StartElement startElement) {
